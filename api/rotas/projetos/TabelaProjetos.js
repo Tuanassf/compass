@@ -6,5 +6,16 @@ module.exports = {
     },
     inserir (projeto) {
         return Modelo.create(projeto)
+    },
+    async pegarPorId(id){
+        const projetoEncontrado = await Modelo.findOne({
+            where: {
+                id : id
+            }
+        })
+        if (!projetoEncontrado){
+            throw new Error('Projeto não encontrado!')
+        }
+        return projetoEncontrado
     }
 }

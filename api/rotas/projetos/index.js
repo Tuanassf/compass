@@ -10,13 +10,30 @@ roteador.get('/', async (req, res)=>{
     )
 })
 
-roteador.post('/', async (requisicao, resposta)=>{
-    const dadosRecebidos = requisicao.body
+roteador.post('/', async (req, res)=>{
+    const dadosRecebidos = req.body
     const projeto = new Projeto(dadosRecebidos)
     await projeto.criar()
     res.send(
         JSON.stringify(projeto)
     )
+})
+
+roteador.get('/:idProjeto', async (req, res)=>{
+    try{
+        const id = req.params.idProjeto
+        const projeto = new Projeto({ id : id })
+        await projeto.carregar()
+        res.send(
+            JSON.stringify(projeto)
+        )
+    }catch(erro){
+        res.send(
+            JSON.stringify({
+                mensagem: erro.message
+            })
+        )
+    }
 })
 
 module.exports = roteador

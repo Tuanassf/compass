@@ -23,6 +23,15 @@ class Projeto {
         this.versao = resultado.versao
 
      }
+
+     async carregar(){
+         const projetoEncontrado = await TabelaProjetos.pegarPorId(this.id)
+         this.titulo = projetoEncontrado.titulo
+         this.descricao = projetoEncontrado.descricao
+         this.dataCriacao = projetoEncontrado.dataCriacao
+         this.dataAtualizacao = projetoEncontrado.dataAtualizacao
+         this.versao = projetoEncontrado.versao
+     }
 }
 
 module.exports = Projeto
