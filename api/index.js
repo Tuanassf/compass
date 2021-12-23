@@ -5,6 +5,8 @@ const config = require('config')
 
 app.use(bodyParser.json())
 
-app.listen(process.env.PORT || config.get('api.porta'), () => {
-    console.log('Server is running in http://localhost: 3000')
-})
+const roteador = require('./rotas/projetos')
+app.use('/api/projetos', roteador)
+
+app.listen(config.get('api.porta'), () => 
+ console.log('Server is running in http://localhost: 3000'))
