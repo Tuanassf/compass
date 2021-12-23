@@ -32,6 +32,26 @@ class Projeto {
          this.dataAtualizacao = projetoEncontrado.dataAtualizacao
          this.versao = projetoEncontrado.versao
      }
+
+     async atualizar(){
+        await TabelaProjetos.pegarPorId(this.id)
+        const campos = ['titulo', 'descricao']
+        const dadosParaAtualizar = {}
+
+        campos.forEach((campo)=>{
+            const valor = this[campo]
+
+            if (typeof valor === 'string' && valor.length > 0){
+                dadosParaAtualizar[campo] = valor
+            }
+        })
+
+        if(Object.keys(dadosParaAtualizar).length === 0){
+            throw new Error ('Os campos para atualizar não podem ficar vazios')
+        }
+
+        await TabelaProjetos.atualizar(this.id, dadosParaAtualizar)
+     }
 }
 
 module.exports = Projeto

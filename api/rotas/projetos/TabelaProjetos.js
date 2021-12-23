@@ -17,5 +17,15 @@ module.exports = {
             throw new Error('Projeto não encontrado!')
         }
         return projetoEncontrado
+    },
+
+    atualizar(id, dadosParaAtualizar){
+        return Modelo.update(
+            dadosParaAtualizar,
+            {
+                where: { id : id }
+            }
+        )
     }
+        
 }

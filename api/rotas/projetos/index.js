@@ -36,4 +36,21 @@ roteador.get('/:idProjeto', async (req, res)=>{
     }
 })
 
+roteador.put('/:idProjeto', async (req, res)=>{
+    try{
+        const id = req.params.idProjeto
+        const dadosRecebidos = req.body
+        const dados = Object.assign({}, dadosRecebidos, { id: id })
+        const projeto = new Projeto(dados)
+        await projeto.atualizar()
+        res.end()
+    }catch(erro){
+        res.send(
+            JSON.stringify({
+                mensagem: erro.message
+            })
+        )
+    }
+})
+
 module.exports = roteador
