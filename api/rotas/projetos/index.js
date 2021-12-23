@@ -27,7 +27,7 @@ roteador.get('/:idProjeto', async (req, res)=>{
         res.send(
             JSON.stringify(projeto)
         )
-    }catch(erro){
+    }catch (erro){
         res.send(
             JSON.stringify({
                 mensagem: erro.message
@@ -49,6 +49,22 @@ roteador.put('/:idProjeto', async (req, res)=>{
             JSON.stringify({
                 mensagem: erro.message
             })
+        )
+    }
+})
+
+roteador.delete('/:idProjeto', async (req, res)=>{ 
+    try{
+        const id = req.params.idProjeto
+        const projeto = new Projeto({ id: id })
+        await projeto.carregar()
+        await projeto.remover()
+        res.end()
+    }catch(erro){
+        res.send(
+            JSON.stringify({
+                mensagem: erro.message
+            }) 
         )
     }
 })
