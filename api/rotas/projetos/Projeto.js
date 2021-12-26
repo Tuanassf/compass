@@ -1,4 +1,6 @@
 const TabelaProjetos = require('./TabelaProjetos')
+const CampoInvalido = require ('../../erros/CampoInvalido')
+const DadosNaoFornecidos = require ('../../erros/DadosNaoFornecidos')
 
 class Projeto {
     constructor ({id, titulo, descricao, dataCriacao, dataAtualizacao,
@@ -12,6 +14,7 @@ class Projeto {
      }
      
      async criar (){
+        this.validar()
         const resultado = await TabelaProjetos.inserir({
             titulo: this.titulo,
             descricao: this.descricao
@@ -47,7 +50,7 @@ class Projeto {
         })
 
         if(Object.keys(dadosParaAtualizar).length === 0){
-            throw new Error ('Os campos para atualizar não podem ficar vazios')
+            throw new DadosNaoFornecidos()
         }
 
         await TabelaProjetos.atualizar(this.id, dadosParaAtualizar)
@@ -55,6 +58,18 @@ class Projeto {
 
      remover(){
          return TabelaProjetos.remover(this.id)
+     }
+
+     validar(){
+         const campos = ['titulo', 'descricao']
+
+         campos.forEach(campo => {
+             const valor = this[campo]
+
+             if(typeof valor !== 'string'|| valor.length < 0) {
+                throw new CampoInvalido (campo)
+             }
+         })
      }
 }
 

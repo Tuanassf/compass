@@ -1,4 +1,5 @@
 const Modelo = require('./ModeloTabelaProjetos')
+const NaoEncontrado = require ('../../erros/NaoEncontrado')
 
 module.exports = {
     listar(){
@@ -14,7 +15,7 @@ module.exports = {
             }
         })
         if (!projetoEncontrado){
-            throw new Error('Projeto não encontrado!')
+            throw new NaoEncontrado()
         }
         return projetoEncontrado
     },
