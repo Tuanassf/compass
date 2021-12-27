@@ -51,7 +51,7 @@ id: id do projeto (obrigatório)
 https://localhost:3000/api/projetos/
 
 ## DESCRIÇÃO:
-Essa requisição cria um novo projeto.
+Esta requisição cria um novo projeto.
 
 ## INPUT:
 ### BODY 
@@ -64,7 +64,7 @@ Essa requisição cria um novo projeto.
 https://localhost:3000/api/projetos/:id
 
 ## DESCRIÇÃO:
-Essa requisição edita um projeto existente.
+Esta requisição edita um projeto existente.
 
 ## INPUT:
 ### Body
@@ -112,7 +112,7 @@ versao: versão da tarefa
 https://localhost:3000/api/projetos/:id/tasks/
 
 ## DESCRIÇÃO:
-Essa requisição cria uma nova tarefa em um projeto específico.
+Esta requisição cria uma nova tarefa em um projeto específico.
 
 ## INPUT:
 Path Param
