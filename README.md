@@ -27,14 +27,8 @@ Esta requisição serve para ver o id, titulo, descrição data de criação e a
 #### dataCriacao: data de criação do projeto
 #### dataAtualizacao: data de atualização do projeto
 
- {
-        "id": 1,
-        "titulo": "trocar o readme",
-        "descricao": "responsável por acompanhar o fluxo de mercadorias da empresa. Deve documentar e analisar as informações das vendas realizadas",
-        "dataCriacao": "2021-12-23T17:10:23.000Z",
-        "dataAtualizacao": "2021-12-26T17:51:16.000Z",
-        "versao": 0
-    }
+ ![image](https://user-images.githubusercontent.com/83101467/147501323-5e14ec0e-1dd6-4cff-9608-172e7ac1fe38.png)
+
 
 ## GET getProjectById
 
