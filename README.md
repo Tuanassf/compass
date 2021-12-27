@@ -137,8 +137,8 @@ Esta requisição serve para atualizar alguma tarefa existente em um projeto.
 ## INPUT:
 
 ### Path Param
-id: id do projeto (obrigatório)
-id: id da tarefa (obrigatório)
+#### id: id do projeto (obrigatório)
+#### id: id da tarefa (obrigatório)
 
 ### Body
 ![image](https://user-images.githubusercontent.com/83101467/147501638-8e6b3816-73d3-496a-b5f9-eb764a6a9f6b.png)
