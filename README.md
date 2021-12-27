@@ -152,8 +152,8 @@ Esta requisição serve para deletar alguma tarefa existente em um projeto.
 ## INPUT:
 
 ### Path Param
-####id: id do projeto (obrigatório)
-####id: id da tarefa (obrigatório)
+#### id: id do projeto (obrigatório)
+#### id: id da tarefa (obrigatório)
 
 ## 📁 Como baixar e rodar o projeto
     $ git clone https://github.com/Tuanassf/compass.git
