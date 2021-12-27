@@ -1,6 +1,6 @@
 # **_API_** 
 
-# Primeiro desafio do programa de bolsas da compass uol que tratou-se da criação de uma API cuja funcionalidade assemelha-se ao Trello ou a um Bloco de notas.
+## Primeiro desafio do programa de bolsas da compass uol que tratou-se da criação de uma API cuja funcionalidade assemelha-se ao Trello ou a um Bloco de notas.
 
 ## Linguagens e libs utilizadas :books:
 - NodeJs
@@ -16,16 +16,16 @@
 
 https://localhost:3000/api/projetos/
 
-DESCRIÇÃO:
+## DESCRIÇÃO:
 Esta requisição serve para ver o id, titulo, descrição data de criação e atualização de todos os projetos
 
-OUTPUT:
-Body Array com todos os projetos criados com o seguinte formato:
-id: id de cada projeto
-titulo: titulo de cada projeto
-descricao: descrição do projeto
-dataCriacao: data de criação do projeto
-dataAtualizacao: data de atualização do projeto
+## OUTPUT:
+#### Body Array com todos os projetos criados com o seguinte formato:
+#### id: id de cada projeto
+#### titulo: titulo de cada projeto
+#### descricao: descrição do projeto
+#### dataCriacao: data de criação do projeto
+#### dataAtualizacao: data de atualização do projeto
 
  {
         "id": 1,
