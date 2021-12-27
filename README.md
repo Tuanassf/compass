@@ -20,7 +20,8 @@ https://localhost:3000/api/projetos/
 Esta requisição serve para ver o id, titulo, descrição data de criação e atualização de todos os projetos
 
 ## OUTPUT:
-#### Body Array com todos os projetos criados com o seguinte formato:
+#### Body 
+Array com todos os projetos criados com o seguinte formato:
 #### id: id de cada projeto
 #### titulo: titulo de cada projeto
 #### descricao: descrição do projeto
@@ -34,76 +35,66 @@ Esta requisição serve para ver o id, titulo, descrição data de criação e a
 
 https://localhost:3000/api/projetos/:id
 
-DESCRIÇÃO:
+## DESCRIÇÃO:
 Esta requisição serve para ver o id, titulo, descrição data de criação e atualização de um projeto específico.
 
-Path Param
+#### Path Param
 id: id do projeto (obrigatório)
 
-OUTPUT:
+## OUTPUT:
 
-{
-    "id": "9",
-    "titulo": "novo projeto",
-    "descricao": "elaborar um bom projeto",
-    "dataCriacao": "2021-12-26T22:55:27.000Z",
-    "dataAtualizacao": "2021-12-26T22:55:27.000Z",
-    "versao": 0
-}
+![image](https://user-images.githubusercontent.com/83101467/147501408-3221a095-8ff1-46f4-9e0c-416670384a45.png)
+
 
 ## POST createProject
 
 https://localhost:3000/api/projetos/
 
-DESCRIÇÃO:
+## DESCRIÇÃO:
 Essa requisição cria um novo projeto.
 
-INPUT:
-BODY 
-{
-    "titulo":"string",
-    "descricao":"string"
-    
-}
+## INPUT:
+### BODY 
+
+![image](https://user-images.githubusercontent.com/83101467/147501499-b5cbfea4-4a51-432d-b9e0-ae378cba15d5.png)
+
 
 ## PUT editProject
 
 https://localhost:3000/api/projetos/:id
 
-DESCRIÇÃO:
+## DESCRIÇÃO:
 Essa requisição edita um projeto existente.
 
-INPUT:
-Body
-{
-    "titulo": "string",
-    "descricao": "string"
-}
+## INPUT:
+### Body
+
+![image](https://user-images.githubusercontent.com/83101467/147501540-849de2d2-cf2b-4184-ba99-9235526eda60.png)
 
 ## DEL deleteProject
 
 https://localhost:3000/api/projetos/:id
 
-DESCRIÇÃO:
+## DESCRIÇÃO:
 Esta requisição serve para deletar algum projeto existente.
 
-INPUT:
+## INPUT:
 
-Path Param
+### Path Param
 id: id do projeto (obrigatório)
 
 ## GET getAllTasksById
 
 https://localhost:3000/api/projetos/:id/tasks
 
-DESCRIÇÃO:
+## DESCRIÇÃO:
 Esta requisição permite visualizar todas as tarefas pertencentes a um projeto específico.
 
-INPUT:
-Path Param
+## INPUT:
+### Path Param
 id: id do projeto (obrigatório)
 
-OUTPUT:
+### OUTPUT:
 Body
 id: id da tarefa
 titulo: titulo da tarefa
@@ -113,67 +104,50 @@ dataCriacao: data de criação da tarefa
 dataAtualizacao: data de atualização da tarefa
 versao: versão da tarefa
 
- {
-        "id": 9,
-        "titulo": "12",
-        "taskRelevance": 10,
-        "completed": false,
-        "projeto": 9,
-        "dataCriacao": "2021-12-27T14:36:00.000Z",
-        "dataAtualizacao": "2021-12-27T14:36:00.000Z",
-        "versao": 0
-    }
+ ![image](https://user-images.githubusercontent.com/83101467/147501583-42a334fe-e4eb-4bf6-ab4e-777889dee628.png)
+
 
 ## POST createTask
 
 https://localhost:3000/api/projetos/:id/tasks/
 
-DESCRIÇÃO:
+## DESCRIÇÃO:
 Essa requisição cria uma nova tarefa em um projeto específico.
 
-INPUT:
+## INPUT:
 Path Param
 id: id do projeto (obrigatório)
 
-Body
+### Body
 titulo: título da tarefa (obrigatório)
 taskrelevance: relevância da tarefa (obrigatório)
 completed: tarefa completada ou não(obrigatório)
 
-{
-    "titulo": "12",
-    "taskRelevance": 10,
-    "completed": false
-    
-}
+![image](https://user-images.githubusercontent.com/83101467/147501616-05dbf2dd-8bbe-4339-9f38-0c0f631e0446.png)
 
 ## PUT editTask
 https://localhost:3000/api/projetos/:id/tasks/:id/
 
-DESCRIÇÃO:
+## DESCRIÇÃO:
 Esta requisição serve para atualizar alguma tarefa existente em um projeto.
 
-INPUT:
+## INPUT:
 
-Path Param
+### Path Param
 id: id do projeto (obrigatório)
 id: id da tarefa (obrigatório)
 
-Body
-{
-    "titulo": "mudar todas as cores",
-    "taskRelevance": 10,
-    "completed": false
-}
+### Body
+![image](https://user-images.githubusercontent.com/83101467/147501638-8e6b3816-73d3-496a-b5f9-eb764a6a9f6b.png)
 
 ## DEL deleteTask
 https://localhost:3000/api/projetos/:id/tasks/:id/
 
-DESCRIÇÃO:
+## DESCRIÇÃO:
 Esta requisição serve para deletar alguma tarefa existente em um projeto.
 
-INPUT:
+## INPUT:
 
-Path Param
+### Path Param
 id: id do projeto (obrigatório)
 id: id da tarefa (obrigatório)
