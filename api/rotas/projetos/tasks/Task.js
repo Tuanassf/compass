@@ -55,6 +55,30 @@ class Task {
         this.dataCriacao = task.dataCriacao
         this.dataAtualizacao = task.dataAtualizacao
     }
+    atualizar () {
+        const dadosParaAtualizar = {}
+
+        if (typeof this.titulo === 'string' && this.titulo.length > 0){
+            dadosParaAtualizar.titulo = this.titulo
+        }
+        if (typeof this.taskRelevance === 'number' && this.taskRelevance.length > 0){
+            dadosParaAtualizar.taskRelevance = this.taskRelevance
+        }
+        if (typeof this.completed === 'boolean' && this.completed.length > 0){
+            dadosParaAtualizar.completed = this.completed
+        }
+        if (Object.keys(dadosParaAtualizar).length === 0){
+            throw new Error ('Não foram fornecidos dados para atualizar')
+        }
+        return Tabela.atualizar(
+            {
+                id: this.id,
+                projeto: this.projeto
+            },
+            dadosParaAtualizar
+        )
+    }
 }
+
 
 module.exports = Task

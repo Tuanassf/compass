@@ -32,5 +32,13 @@ module.exports = {
             throw new Error ('Projeto não encontrado')
         }
         return encontrado
+    },
+    atualizar (dadosDaTask, dadosParaAtualizar) {
+        return Modelo.update(
+            dadosParaAtualizar,
+            {
+                where: dadosDaTask
+            }
+        )
     }
 }

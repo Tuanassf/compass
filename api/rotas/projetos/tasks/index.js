@@ -50,8 +50,29 @@ roteador.get('/:id', async (req, res, proximo) =>{
         )
     }catch (erro) {
         proximo(erro)
+    }    
+})
+
+roteador.put('/:id', async (req, res, proximo) => {
+    try{
+        const dados = Object.assign(
+            {}, 
+            req.body, 
+            {
+                id: req.params.id,
+                projeto: req.params.idProjeto
+            }
+        )
+        const task = new Task(dados)
+        await task.atualizar()
+        res.status(204)
+        res.end()
+        
+    }catch (erro){
+        proximo(erro)
     }
     
-
 })
+
+
 module.exports = roteador
