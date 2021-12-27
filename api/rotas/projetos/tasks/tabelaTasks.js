@@ -18,5 +18,19 @@ module.exports = {
                 projeto: idProjeto
             }
         })
+    },
+    async pegarPorId (idTask, idProjeto) {
+        const encontrado = await Modelo.findOne({
+            where: {
+                id: idTask,
+                projeto: idProjeto
+            },
+            raw: true
+        })
+
+        if (!encontrado) {
+            throw new Error ('Projeto não encontrado')
+        }
+        return encontrado
     }
 }

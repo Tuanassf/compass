@@ -46,6 +46,15 @@ class Task {
     apagar () {
         return Tabela.remover( this.id, this.projeto)
     }
+
+    async carregar () {
+        const task = await Tabela.pegarPorId(this.id, this.projeto)
+        this.titulo = task.titulo
+        this.taskRelevance = task.taskRelevance
+        this.completed = task.completed
+        this.dataCriacao = task.dataCriacao
+        this.dataAtualizacao = task.dataAtualizacao
+    }
 }
 
 module.exports = Task
