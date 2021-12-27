@@ -154,3 +154,10 @@ Esta requisição serve para deletar alguma tarefa existente em um projeto.
 ### Path Param
 id: id do projeto (obrigatório)
 id: id da tarefa (obrigatório)
+
+## 📁 Como baixar e rodar o projeto
+    $ git clone https://github.com/Tuanassf/compass.git
+    $ cd compass
+    $ cd projetoApi
+    $ npm install
+    $ node api/index.js
