@@ -34,6 +34,7 @@ class Projeto {
          this.dataCriacao = projetoEncontrado.dataCriacao
          this.dataAtualizacao = projetoEncontrado.dataAtualizacao
          this.versao = projetoEncontrado.versao
+        
      }
 
      async atualizar(){

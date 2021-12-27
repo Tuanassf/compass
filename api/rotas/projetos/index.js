@@ -1,13 +1,16 @@
 const roteador = require('express').Router()
 const TabelaProjetos = require('./TabelaProjetos')
 const Projeto = require('./Projeto')
-
+const SerializadorProjeto = require('../../Serializador').SerializadorProjeto
 
 roteador.get('/', async (req, res)=>{
     const resultados = await TabelaProjetos.listar()
     res.status(200)
+    const serializador = new SerializadorProjeto(
+        res.getHeader('Content-type')
+    )
     res.send(
-        JSON.stringify(resultados)
+        serializador.serializar(resultados)
     )
 })
 
@@ -17,8 +20,11 @@ roteador.post('/', async (req, res, proximo)=>{
         const projeto = new Projeto(dadosRecebidos)
         await projeto.criar()
         res.status(201)
+        const serializador = new SerializadorProjeto(
+            res.getHeader('Content-type')
+        )
         res.send(
-            JSON.stringify(projeto)
+           serializador.serializar(projeto)
         )
     }catch(erro){
         proximo(erro)
@@ -31,8 +37,11 @@ roteador.get('/:idProjeto', async (req, res, proximo)=>{
         const projeto = new Projeto({ id : id })
         await projeto.carregar()
         res.status(200)
+        const serializador = new SerializadorProjeto(
+            res.getHeader('Content-type')
+        )
         res.send(
-            JSON.stringify(projeto)
+            serializador.serializar(projeto)
         )
     }catch (erro){
         proximo(erro)
@@ -65,5 +74,8 @@ roteador.delete('/:idProjeto', async (req, res, proximo)=>{
         proximo(erro)
     }
 })
+
+const roteadorTasks = require('./tasks')
+roteador.use('/:idProjeto/tasks', roteadorTasks)
 
 module.exports = roteador
