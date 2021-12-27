@@ -66,6 +66,9 @@ https://localhost:3000/api/projetos/:id
 ## DESCRIÇÃO:
 Esta requisição edita um projeto existente.
 
+#### Path Param
+id: id do projeto (obrigatório)
+
 ## INPUT:
 ### Body
 
